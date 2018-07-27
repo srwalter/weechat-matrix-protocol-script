@@ -522,7 +522,7 @@ function real_http_cb(extra, command, rc, stdout, stderr)
             return w.WEECHAT_RC_OK
         end
         -- Skip to data
-        stdout = (stdout:match('.-\r?\n\r?\n(.*)'))
+        stdout = (stdout:match('.-\r?\n\r?\n({.*)'))
         -- Protected call in case of JSON errors
         local success, js = pcall(json.decode, stdout)
         if not success then
